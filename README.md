@@ -14,6 +14,7 @@ Clickable Table is a simple web application that allows users to interact with a
 - Stick the table header when scrolling down.
 - Text helper in editing mode.
 - No additional dependencies or library required.
+- Exclude some column from editing mode.
 - Data handler backend via AJAX with POST method. (PHP or any as needed)
 - Parse error text to Alert if error occur.
 
