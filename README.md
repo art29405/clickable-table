@@ -3,6 +3,8 @@
 The HTML table that can edit by clicking on its cells.
 Clickable Table is a simple web application that allows users to interact with a table by clicking on its cells. Users can edit the content of the cells, save the changes, or cancel the editing process.
 
+Demo webpage available at https://art29405.github.io/clickable-table/
+
 ![](https://raw.githubusercontent.com/art29405/clickable-table/main/videogif.gif)
 
 ## Features
