@@ -21,7 +21,7 @@ Clickable Table is a simple web application that allows users to interact with a
 
 1. Clone the repository:
 
-git clone https://github.com/art29405/clickable-table.git
+`git clone https://github.com/art29405/clickable-table.git`
 
 2. Open `clickabletable.html` in your web browser.
 
