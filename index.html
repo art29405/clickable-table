@@ -154,7 +154,7 @@
             if (this.readyState == 4) {
                 if (this.status == 200) {
                     //console.log("Data saved successfully:", this.responseText);
-                    activeCell.innerText = newData;
+                    //activeCell.innerText = newData;
                 } else {
                     alert("Error: " + this.status + " - " + this.statusText);
                 }
@@ -166,6 +166,7 @@
     } else {
         console.error("Active cell is invalid or missing parentNode.");
     }
+    activeCell.innerText = newData;//this line of code for change data in table cell, move this line of code to under status 200 to change the cell if backend response code 200.  
     inputContainer.classList.remove("active");
     dimmedOverlay.classList.remove("active");
 }
