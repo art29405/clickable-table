@@ -31,7 +31,6 @@ Demo webpage available at https://art29405.github.io/clickable-table/
 4. Move "activeCell.innerText = newData" to under status200
 5. Exclude editing column if needed (column count start from 0)
 6. Modify remove-row script if needed
-7. 
 
 ## Usage
 
@@ -48,8 +47,11 @@ Demo webpage available at https://art29405.github.io/clickable-table/
 ## Version
 
 -- Version: 0.1.0.20240509
+
 - inital release
+
 -- Version: 0.2.0.20240516
+
 - Align text-helper and button to column
 - Add header.innertext to POST dta 
 - Add AppName in POST data for data-handler to handle many application
