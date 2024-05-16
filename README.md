@@ -21,14 +21,17 @@ Demo webpage available at https://art29405.github.io/clickable-table/
 - Exclude some column from editing mode.
 - Data handler backend via AJAX with POST method. (PHP or any as needed)
 - Parse error text to Alert if error occur.
+- Race condition prevention by compare value to database value before modify.
 
 ## Installation
 
-1. Clone the repository:
-
-`git clone https://github.com/art29405/clickable-table.git`
-
-2. Open `clickabletable.html` in your web browser.
+1. Modify "data-handler" destination
+2. Modify "AppName" in POST value
+3. Each table row need uniqe id in tr tag, for example "<tr id='01'>"
+4. Move "activeCell.innerText = newData" to under status200
+5. Exclude editing column if needed (column count start from 0)
+6. Modify remove-row script if needed
+7. 
 
 ## Usage
 
@@ -44,7 +47,16 @@ Demo webpage available at https://art29405.github.io/clickable-table/
 
 ## Version
 
-- Version: 0.1.0.20240509
+-- Version: 0.1.0.20240509
+- inital release
+-- Version: 0.2.0.20240516
+- Align text-helper and button to column
+- Add header.innertext to POST dta 
+- Add AppName in POST data for data-handler to handle many application
+- Improve data-handler example file
+- Click any table-header to sort
+- Add ability to check data before modify value to prevent Race condition
+- Add create row markup
 
 ## Known Issues
 
@@ -54,8 +66,8 @@ Demo webpage available at https://art29405.github.io/clickable-table/
 
 - Implement input validation for data entered in cells.
 - Support for more advanced table features such as sorting and filtering.
-- Function to delete row.
 - Function to create new row.
+- Add other input type.
 
 ## Contributing
 

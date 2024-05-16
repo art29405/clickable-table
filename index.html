@@ -47,17 +47,24 @@
             z-index: 2;
         }
 
-        .input-container.active {
-            display: flex;
-            align-items: center;
+        input[type="text"] {
+            width: 100%; /* Cover all the cell width */
+            padding: 8px;
+            box-sizing: border-box;
         }
 
         .input-container.active input[type="text"] {
             flex: 1;
         }
 
+        .input-container.active {
+            display: flex;
+            flex-direction: column; /* Align buttons in a column */
+            align-items: flex-start;
+        }
+
         .input-container.active button {
-            margin-left: 10px;
+            margin-top: 10px; /* Add margin between buttons */
         }
 
         .dimmed {
@@ -83,12 +90,19 @@
 
         .helper-text {
             position: absolute;
-            bottom: -40px;
+            bottom: 40px;
             left: 0;
             width: 100%;
             text-align: left;
             color: white;
             pointer-events: none;
+        }
+
+        th.sorted-asc::after {
+        content: " \25B2"; /* Up arrow */
+        }
+        th.sorted-desc::after {
+        content: " \25BC"; /* Down arrow */
         }
     </style>
 </head>
@@ -98,24 +112,75 @@
 
 <div id="dimmedOverlay" class="dimmed"></div>
 
+
+    <input type="text" id="filterInput" placeholder="Search for anything in table">
+
+<br>
+<br>
+
 <table id="ClickableTable">
     <thead>
       <tr>
         <th>Column1</th>
-        <th>Column2</th>
+        <th>Column2 (Exclude)</th>
         <th>Column3</th>
+        <th>Delete</th>
       </tr>
     </thead>
     <tbody>
-      <tr id="row1"><td>Column1 - 1</td><td>Column2 - 1</td><td>Column3 - 1</td></tr><tr id="row2"><td>Column1 - 2</td><td>Column2 - 2</td><td>Column3 - 2</td></tr><tr id="row3"><td>Column1 - 3</td><td>Column2 - 3</td><td>Column3 - 3</td></tr><tr id="row4"><td>Column1 - 4</td><td>Column2 - 4</td><td>Column3 - 4</td></tr><tr id="row5"><td>Column1 - 5</td><td>Column2 - 5</td><td>Column3 - 5</td></tr><tr id="row6"><td>Column1 - 6</td><td>Column2 - 6</td><td>Column3 - 6</td></tr><tr id="row7"><td>Column1 - 7</td><td>Column2 - 7</td><td>Column3 - 7</td></tr><tr id="row8"><td>Column1 - 8</td><td>Column2 - 8</td><td>Column3 - 8</td></tr><tr id="row9"><td>Column1 - 9</td><td>Column2 - 9</td><td>Column3 - 9</td></tr><tr id="row10"><td>Column1 - 10</td><td>Column2 - 10</td><td>Column3 - 10</td></tr><tr id="row11"><td>Column1 - 11</td><td>Column2 - 11</td><td>Column3 - 11</td></tr><tr id="row12"><td>Column1 - 12</td><td>Column2 - 12</td><td>Column3 - 12</td></tr><tr id="row13"><td>Column1 - 13</td><td>Column2 - 13</td><td>Column3 - 13</td></tr><tr id="row14"><td>Column1 - 14</td><td>Column2 - 14</td><td>Column3 - 14</td></tr><tr id="row15"><td>Column1 - 15</td><td>Column2 - 15</td><td>Column3 - 15</td></tr><tr id="row16"><td>Column1 - 16</td><td>Column2 - 16</td><td>Column3 - 16</td></tr><tr id="row17"><td>Column1 - 17</td><td>Column2 - 17</td><td>Column3 - 17</td></tr><tr id="row18"><td>Column1 - 18</td><td>Column2 - 18</td><td>Column3 - 18</td></tr><tr id="row19"><td>Column1 - 19</td><td>Column2 - 19</td><td>Column3 - 19</td></tr><tr id="row20"><td>Column1 - 20</td><td>Column2 - 20</td><td>Column3 - 20</td></tr><tr id="row21"><td>Column1 - 21</td><td>Column2 - 21</td><td>Column3 - 21</td></tr><tr id="row22"><td>Column1 - 22</td><td>Column2 - 22</td><td>Column3 - 22</td></tr><tr id="row23"><td>Column1 - 23</td><td>Column2 - 23</td><td>Column3 - 23</td></tr><tr id="row24"><td>Column1 - 24</td><td>Column2 - 24</td><td>Column3 - 24</td></tr><tr id="row25"><td>Column1 - 25</td><td>Column2 - 25</td><td>Column3 - 25</td></tr><tr id="row26"><td>Column1 - 26</td><td>Column2 - 26</td><td>Column3 - 26</td></tr><tr id="row27"><td>Column1 - 27</td><td>Column2 - 27</td><td>Column3 - 27</td></tr><tr id="row28"><td>Column1 - 28</td><td>Column2 - 28</td><td>Column3 - 28</td></tr><tr id="row29"><td>Column1 - 29</td><td>Column2 - 29</td><td>Column3 - 29</td></tr><tr id="row30"><td>Column1 - 30</td><td>Column2 - 30</td><td>Column3 - 30</td></tr><tr id="row31"><td>Column1 - 31</td><td>Column2 - 31</td><td>Column3 - 31</td></tr><tr id="row32"><td>Column1 - 32</td><td>Column2 - 32</td><td>Column3 - 32</td></tr><tr id="row33"><td>Column1 - 33</td><td>Column2 - 33</td><td>Column3 - 33</td></tr><tr id="row34"><td>Column1 - 34</td><td>Column2 - 34</td><td>Column3 - 34</td></tr><tr id="row35"><td>Column1 - 35</td><td>Column2 - 35</td><td>Column3 - 35</td></tr><tr id="row36"><td>Column1 - 36</td><td>Column2 - 36</td><td>Column3 - 36</td></tr><tr id="row37"><td>Column1 - 37</td><td>Column2 - 37</td><td>Column3 - 37</td></tr><tr id="row38"><td>Column1 - 38</td><td>Column2 - 38</td><td>Column3 - 38</td></tr><tr id="row39"><td>Column1 - 39</td><td>Column2 - 39</td><td>Column3 - 39</td></tr><tr id="row40"><td>Column1 - 40</td><td>Column2 - 40</td><td>Column3 - 40</td></tr><tr id="row41"><td>Column1 - 41</td><td>Column2 - 41</td><td>Column3 - 41</td></tr><tr id="row42"><td>Column1 - 42</td><td>Column2 - 42</td><td>Column3 - 42</td></tr><tr id="row43"><td>Column1 - 43</td><td>Column2 - 43</td><td>Column3 - 43</td></tr><tr id="row44"><td>Column1 - 44</td><td>Column2 - 44</td><td>Column3 - 44</td></tr><tr id="row45"><td>Column1 - 45</td><td>Column2 - 45</td><td>Column3 - 45</td></tr><tr id="row46"><td>Column1 - 46</td><td>Column2 - 46</td><td>Column3 - 46</td></tr><tr id="row47"><td>Column1 - 47</td><td>Column2 - 47</td><td>Column3 - 47</td></tr><tr id="row48"><td>Column1 - 48</td><td>Column2 - 48</td><td>Column3 - 48</td></tr><tr id="row49"><td>Column1 - 49</td><td>Column2 - 49</td><td>Column3 - 49</td></tr><tr id="row50"><td>Column1 - 50</td><td>Column2 - 50</td><td>Column3 - 50</td></tr><tr id="row51"><td>Column1 - 51</td><td>Column2 - 51</td><td>Column3 - 51</td></tr><tr id="row52"><td>Column1 - 52</td><td>Column2 - 52</td><td>Column3 - 52</td></tr><tr id="row53"><td>Column1 - 53</td><td>Column2 - 53</td><td>Column3 - 53</td></tr><tr id="row54"><td>Column1 - 54</td><td>Column2 - 54</td><td>Column3 - 54</td></tr><tr id="row55"><td>Column1 - 55</td><td>Column2 - 55</td><td>Column3 - 55</td></tr><tr id="row56"><td>Column1 - 56</td><td>Column2 - 56</td><td>Column3 - 56</td></tr><tr id="row57"><td>Column1 - 57</td><td>Column2 - 57</td><td>Column3 - 57</td></tr><tr id="row58"><td>Column1 - 58</td><td>Column2 - 58</td><td>Column3 - 58</td></tr><tr id="row59"><td>Column1 - 59</td><td>Column2 - 59</td><td>Column3 - 59</td></tr><tr id="row60"><td>Column1 - 60</td><td>Column2 - 60</td><td>Column3 - 60</td></tr><tr id="row61"><td>Column1 - 61</td><td>Column2 - 61</td><td>Column3 - 61</td></tr><tr id="row62"><td>Column1 - 62</td><td>Column2 - 62</td><td>Column3 - 62</td></tr><tr id="row63"><td>Column1 - 63</td><td>Column2 - 63</td><td>Column3 - 63</td></tr><tr id="row64"><td>Column1 - 64</td><td>Column2 - 64</td><td>Column3 - 64</td></tr><tr id="row65"><td>Column1 - 65</td><td>Column2 - 65</td><td>Column3 - 65</td></tr><tr id="row66"><td>Column1 - 66</td><td>Column2 - 66</td><td>Column3 - 66</td></tr><tr id="row67"><td>Column1 - 67</td><td>Column2 - 67</td><td>Column3 - 67</td></tr><tr id="row68"><td>Column1 - 68</td><td>Column2 - 68</td><td>Column3 - 68</td></tr><tr id="row69"><td>Column1 - 69</td><td>Column2 - 69</td><td>Column3 - 69</td></tr><tr id="row70"><td>Column1 - 70</td><td>Column2 - 70</td><td>Column3 - 70</td></tr><tr id="row71"><td>Column1 - 71</td><td>Column2 - 71</td><td>Column3 - 71</td></tr><tr id="row72"><td>Column1 - 72</td><td>Column2 - 72</td><td>Column3 - 72</td></tr><tr id="row73"><td>Column1 - 73</td><td>Column2 - 73</td><td>Column3 - 73</td></tr><tr id="row74"><td>Column1 - 74</td><td>Column2 - 74</td><td>Column3 - 74</td></tr><tr id="row75"><td>Column1 - 75</td><td>Column2 - 75</td><td>Column3 - 75</td></tr><tr id="row76"><td>Column1 - 76</td><td>Column2 - 76</td><td>Column3 - 76</td></tr><tr id="row77"><td>Column1 - 77</td><td>Column2 - 77</td><td>Column3 - 77</td></tr><tr id="row78"><td>Column1 - 78</td><td>Column2 - 78</td><td>Column3 - 78</td></tr><tr id="row79"><td>Column1 - 79</td><td>Column2 - 79</td><td>Column3 - 79</td></tr><tr id="row80"><td>Column1 - 80</td><td>Column2 - 80</td><td>Column3 - 80</td></tr><tr id="row81"><td>Column1 - 81</td><td>Column2 - 81</td><td>Column3 - 81</td></tr><tr id="row82"><td>Column1 - 82</td><td>Column2 - 82</td><td>Column3 - 82</td></tr><tr id="row83"><td>Column1 - 83</td><td>Column2 - 83</td><td>Column3 - 83</td></tr><tr id="row84"><td>Column1 - 84</td><td>Column2 - 84</td><td>Column3 - 84</td></tr><tr id="row85"><td>Column1 - 85</td><td>Column2 - 85</td><td>Column3 - 85</td></tr><tr id="row86"><td>Column1 - 86</td><td>Column2 - 86</td><td>Column3 - 86</td></tr><tr id="row87"><td>Column1 - 87</td><td>Column2 - 87</td><td>Column3 - 87</td></tr><tr id="row88"><td>Column1 - 88</td><td>Column2 - 88</td><td>Column3 - 88</td></tr><tr id="row89"><td>Column1 - 89</td><td>Column2 - 89</td><td>Column3 - 89</td></tr><tr id="row90"><td>Column1 - 90</td><td>Column2 - 90</td><td>Column3 - 90</td></tr><tr id="row91"><td>Column1 - 91</td><td>Column2 - 91</td><td>Column3 - 91</td></tr><tr id="row92"><td>Column1 - 92</td><td>Column2 - 92</td><td>Column3 - 92</td></tr><tr id="row93"><td>Column1 - 93</td><td>Column2 - 93</td><td>Column3 - 93</td></tr><tr id="row94"><td>Column1 - 94</td><td>Column2 - 94</td><td>Column3 - 94</td></tr><tr id="row95"><td>Column1 - 95</td><td>Column2 - 95</td><td>Column3 - 95</td></tr><tr id="row96"><td>Column1 - 96</td><td>Column2 - 96</td><td>Column3 - 96</td></tr><tr id="row97"><td>Column1 - 97</td><td>Column2 - 97</td><td>Column3 - 97</td></tr><tr id="row98"><td>Column1 - 98</td><td>Column2 - 98</td><td>Column3 - 98</td></tr><tr id="row99"><td>Column1 - 99</td><td>Column2 - 99</td><td>Column3 - 99</td></tr><tr id="row100"><td>Column1 - 100</td><td>Column2 - 100</td><td>Column3 - 100</td></tr>  </tbody>
-  </table>
-  
+        <tr id="row1"><td>Column1 - 1</td><td>Column2 - 1</td><td>Column3 - 1</td><td><button onclick="deleteRow('row1')">Delete</button></td></tr>
+        <tr id="row2"><td>Column1 - 2</td><td>Column2 - 2</td><td>Column3 - 2</td><td><button onclick="deleteRow('row2')">Delete</button></td></tr>
+        <tr id="row3"><td>Column1 - 3</td><td>Column2 - 3</td><td>Column3 - 3</td><td><button onclick="deleteRow('row3')">Delete</button></td></tr>
+        <tr id="row4"><td>Column1 - 4</td><td>Column2 - 4</td><td>Column3 - 4</td><td><button onclick="deleteRow('row4')">Delete</button></td></tr>
+        <tr id="row5"><td>Column1 - 5</td><td>Column2 - 5</td><td>Column3 - 5</td><td><button onclick="deleteRow('row5')">Delete</button></td></tr>
+        <tr id="row6"><td>Column1 - 6</td><td>Column2 - 6</td><td>Column3 - 6</td><td><button onclick="deleteRow('row6')">Delete</button></td></tr>
+        <tr id="row7"><td>Column1 - 7</td><td>Column2 - 7</td><td>Column3 - 7</td><td><button onclick="deleteRow('row7')">Delete</button></td></tr>
+        <tr id="row8"><td>Column1 - 8</td><td>Column2 - 8</td><td>Column3 - 8</td><td><button onclick="deleteRow('row8')">Delete</button></td></tr>
+        <tr id="row9"><td>Column1 - 9</td><td>Column2 - 9</td><td>Column3 - 9</td><td><button onclick="deleteRow('row9')">Delete</button></td></tr>
+        <tr id="row10"><td>Column1 - 10</td><td>Column2 - 10</td><td>Column3 - 10</td><td><button onclick="deleteRow('row10')">Delete</button></td></tr>
+        <tr id="row11"><td>Column1 - 11</td><td>Column2 - 11</td><td>Column3 - 11</td><td><button onclick="deleteRow('row11')">Delete</button></td></tr>
+        <tr id="row12"><td>Column1 - 12</td><td>Column2 - 12</td><td>Column3 - 12</td><td><button onclick="deleteRow('row12')">Delete</button></td></tr>
+        <tr id="row13"><td>Column1 - 13</td><td>Column2 - 13</td><td>Column3 - 13</td><td><button onclick="deleteRow('row13')">Delete</button></td></tr>
+        <tr id="row14"><td>Column1 - 14</td><td>Column2 - 14</td><td>Column3 - 14</td><td><button onclick="deleteRow('row14')">Delete</button></td></tr>
+        <tr id="row15"><td>Column1 - 15</td><td>Column2 - 15</td><td>Column3 - 15</td><td><button onclick="deleteRow('row15')">Delete</button></td></tr>
+        <tr id="row16"><td>Column1 - 16</td><td>Column2 - 16</td><td>Column3 - 16</td><td><button onclick="deleteRow('row16')">Delete</button></td></tr>
+        <tr id="row17"><td>Column1 - 17</td><td>Column2 - 17</td><td>Column3 - 17</td><td><button onclick="deleteRow('row17')">Delete</button></td></tr>
+        <tr id="row18"><td>Column1 - 18</td><td>Column2 - 18</td><td>Column3 - 18</td><td><button onclick="deleteRow('row18')">Delete</button></td></tr>
+        <tr id="row19"><td>Column1 - 19</td><td>Column2 - 19</td><td>Column3 - 19</td><td><button onclick="deleteRow('row19')">Delete</button></td></tr>
+        <tr id="row20"><td>Column1 - 20</td><td>Column2 - 20</td><td>Column3 - 20</td><td><button onclick="deleteRow('row20')">Delete</button></td></tr>
+        <tr id="row21"><td>Column1 - 21</td><td>Column2 - 21</td><td>Column3 - 21</td><td><button onclick="deleteRow('row21')">Delete</button></td></tr>
+        <tr id="row22"><td>Column1 - 22</td><td>Column2 - 22</td><td>Column3 - 22</td><td><button onclick="deleteRow('row22')">Delete</button></td></tr>
+        <tr id="row23"><td>Column1 - 23</td><td>Column2 - 23</td><td>Column3 - 23</td><td><button onclick="deleteRow('row23')">Delete</button></td></tr>
+        <tr id="row24"><td>Column1 - 24</td><td>Column2 - 24</td><td>Column3 - 24</td><td><button onclick="deleteRow('row24')">Delete</button></td></tr>
+        <tr id="row25"><td>Column1 - 25</td><td>Column2 - 25</td><td>Column3 - 25</td><td><button onclick="deleteRow('row25')">Delete</button></td></tr>
+        <tr id="row26"><td>Column1 - 26</td><td>Column2 - 26</td><td>Column3 - 26</td><td><button onclick="deleteRow('row26')">Delete</button></td></tr>
+        <tr id="row27"><td>Column1 - 27</td><td>Column2 - 27</td><td>Column3 - 27</td><td><button onclick="deleteRow('row27')">Delete</button></td></tr>
+        <tr id="row28"><td>Column1 - 28</td><td>Column2 - 28</td><td>Column3 - 28</td><td><button onclick="deleteRow('row28')">Delete</button></td></tr>
+        <tr id="row29"><td>Column1 - 29</td><td>Column2 - 29</td><td>Column3 - 29</td><td><button onclick="deleteRow('row29')">Delete</button></td></tr>
+        <tr id="row30"><td>Column1 - 30</td><td>Column2 - 30</td><td>Column3 - 30</td><td><button onclick="deleteRow('row30')">Delete</button></td></tr>
+        <tr id="newRow">
+            <td>
+                <input type="text" id="inputColumn1" placeholder="inputColumn1">
+            </td>
+            <td>
+                <input type="text" id="inputColumn2" placeholder="inputColumn2">
+            </td>
+            <td>
+                <input type="text" id="inputColumn3" placeholder="inputColumn3">
+            </td>
+            <td>
+                <button >Create</button>
+            </td>
+        </tr>
+      </tbody>
+</table>
+
 
 <div id="inputContainer" class="input-container">
+    <div class="helper-text">Click Save or hit Enter to save. Click Cancel or hit ESC to Cancel.</div>
     <input type="text" id="inputField" placeholder="Enter data" onkeypress="handleKeyPress(event)" autocomplete="off">
     <button onclick="saveData()">Save</button>
     <button onclick="cancelEdit()">Cancel</button>
-    <div class="helper-text">Click Save or hit Enter to save. Click Cancel or hit ESC to Cancel.</div>
 </div>
 
 <script>
@@ -150,10 +215,14 @@
     // Function to save data from input field to table cell
     function saveData() {
     var newData = inputField.value;
+    var previousData = activeCell.innerText; // Capture the previous value before editing for prevent Race condition
     
     // Check if activeCell is valid and has parentNode
     if (activeCell && activeCell.parentNode) {
         var rowId = activeCell.parentNode.id;
+
+        var headerCell = table.querySelector("thead th:nth-child(" + (activeCell.cellIndex + 1) + ")");
+        var header = headerCell ? headerCell.innerText : ""; // Get innerText of headerCell if it exists
         
         // Send data to data-handler.php using AJAX
         var xhttp = new XMLHttpRequest();
@@ -169,7 +238,7 @@
         };
         xhttp.open("POST", "data-handler.php", true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send("data=" + newData + "&row=" + rowId);
+        xhttp.send("data=" + newData + "&row=" + rowId + "&header=" + header + "&previousData=" + previousData + "&AppName=AppName");
     } else {
         console.error("Active cell is invalid or missing parentNode.");
     }
@@ -196,7 +265,7 @@
     // Event listener to detect clicks on table cells
     table.addEventListener("click", function(event) {
         var target = event.target;
-        if (target.tagName === "TD"){//} && target.cellIndex !== 1) { // Exclude editing for column 2
+        if (target.tagName === "TD" && !target.closest('#newRow') && target.cellIndex !== 1 && target.cellIndex !== 3) { // Exclude editing for column 2,4 and rowID="newRow"
             showInputField(target);
         }
     });
@@ -207,7 +276,135 @@
             cancelEdit();
         }
     });
+
+    // Sort script
+  document.addEventListener("DOMContentLoaded", function() {
+    const table = document.getElementById("ClickableTable");
+    const headers = table.querySelectorAll("th");
+    let sortDirection = Array(headers.length).fill(false);
+
+    headers.forEach((header, index) => {
+      header.addEventListener("click", () => {
+        sortTableByColumn(table, index, !sortDirection[index]);
+        sortDirection[index] = !sortDirection[index];
+        updateSortIndicators(headers, index, sortDirection[index]);
+      });
+    });
+
+    function sortTableByColumn(table, column, asc = true) {
+      const dirModifier = asc ? 1 : -1;
+      const tBody = table.querySelector("tbody");
+      const rows = Array.from(tBody.querySelectorAll("tr"));
+
+      const sortedRows = rows.sort((a, b) => {
+        const aText = a.querySelector(`td:nth-child(${column + 1})`).textContent.trim();
+        const bText = b.querySelector(`td:nth-child(${column + 1})`).textContent.trim();
+
+        return aText > bText ? (1 * dirModifier) : (-1 * dirModifier);
+      });
+
+      while (tBody.firstChild) {
+        tBody.removeChild(tBody.firstChild);
+      }
+
+      tBody.append(...sortedRows);
+    }
+
+    function updateSortIndicators(headers, columnIndex, asc) {
+      headers.forEach((header, index) => {
+        header.classList.remove('sorted-asc', 'sorted-desc');
+        if (index === columnIndex) {
+          header.classList.add(asc ? 'sorted-asc' : 'sorted-desc');
+        }
+      });
+    }
+  });
 </script>
 
+<script>
+    // script section for filter input
+    // Get the input field and table
+    let filterInput = document.getElementById('filterInput');
+    //let table = document.getElementById('ClickableTable');
+    let tr = table.getElementsByTagName('tr');
+  
+    // Add an event listener to the input field
+    filterInput.addEventListener('keyup', function() {
+      let filterValue = filterInput.value.toUpperCase();
+  
+      // Loop through all table rows except the first one (table headers)
+      for (let i = 1; i < tr.length; i++) {
+        let td = tr[i].getElementsByTagName('td');
+        let found = false;
+  
+        for (let j = 0; j < td.length; j++) {
+          let cell = td[j];
+          if (cell) {
+            let txtValue = cell.textContent || cell.innerText;
+            if (txtValue.toUpperCase().indexOf(filterValue) > -1) {
+              found = true;
+              break;
+            }
+          }
+        }
+  
+        // Toggle row visibility based on the search
+        if (found) {
+          tr[i].style.display = '';
+        } else {
+          tr[i].style.display = 'none';
+        }
+      }
+    });
+  </script>
+
+<script>
+    // THIS SCRIPT IS FOR EXAMPLE PREVIEW ONLY
+    // Script to remove row
+    function deleteRow(rowId) {
+      var row = document.getElementById(rowId);
+      row.parentNode.removeChild(row);
+    }
+</script>
+
+<script>
+    /*
+    // Script to remove row
+async function deleteRow(rowId) {
+    var row = document.getElementById(rowId);
+    //var column1Data = row.cells[0].innerText;// For compare to database data value to prevent Race conditon if needed
+    //var column3Data = row.cells[2].innerText;
+
+    // Extract row ID
+    var rowIdData = rowId;
+
+    // Create the data object to send
+    var data = {
+      rowId: rowIdData,
+      deleteRow: true  // Flag indicating it's a delete request
+    };
+
+    try {
+      // Send the POST request
+      let response = await fetch('data-handler.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        // If the request was successful, remove the row from the table
+        row.parentNode.removeChild(row);
+      } else {
+        console.error('Failed to send data');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  }
+  */
+</script>
 </body>
 </html>
