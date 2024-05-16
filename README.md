@@ -59,6 +59,7 @@ Demo webpage available at https://art29405.github.io/clickable-table/
 - Click any table-header to sort
 - Add ability to check data before modify value to prevent Race condition
 - Add create row markup
+- Add Filter input
 
 ## Known Issues
 
@@ -66,10 +67,8 @@ Demo webpage available at https://art29405.github.io/clickable-table/
 
 ## Roadmap
 
-- Implement input validation for data entered in cells.
-- Support for more advanced table features such as sorting and filtering.
+- Ability to exclude row from sorting.
 - Function to create new row.
-- Add other input type.
 
 ## Contributing
 
@@ -78,7 +77,3 @@ Contributions are welcome! If you have any suggestions or find any issues, pleas
 ## License
 
 This project is licensed under the GNU General Public License (GPL) - see the license file for details.
-
-## Change log
-
-- Version: 0.1.0.20240509 : Initialize
