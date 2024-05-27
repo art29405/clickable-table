@@ -123,7 +123,7 @@
       <tr>
         <th>Column1</th>
         <th>Column2 (Exclude)</th>
-        <th>Column3</th>
+        <th>Column3 (Option)</th>
         <th>Delete</th>
       </tr>
     </thead>
@@ -175,12 +175,15 @@
       </tbody>
 </table>
 
-
 <div id="inputContainer" class="input-container">
-    <div class="helper-text">Click Save or hit Enter to save. Click Cancel or hit ESC to Cancel.</div>
-    <input type="text" id="inputField" placeholder="Enter data" onkeypress="handleKeyPress(event)" autocomplete="off">
-    <button onclick="saveData()">Save</button>
-    <button onclick="cancelEdit()">Cancel</button>
+  <input type="text" id="inputField" placeholder="Enter data" onkeypress="handleKeyPress(event)" autocomplete="off">
+  <select id="dropdownField" style="display:none;overflow: visible;" onchange="saveData()">
+  </select>
+  <div id="buttonInput">
+      <button onclick="saveData()">Save</button>
+      <button onclick="cancelEdit()">Cancel</button>
+  </div>
+  <div id="helper-text" class="helper-text">Click Save or hit Enter to save. Click Cancel or hit ESC to Cancel.</div>
 </div>
 
 <script>
@@ -201,7 +204,42 @@
         inputContainer.style.height = rect.height + "px";
         inputContainer.classList.add("active");
         dimmedOverlay.classList.add("active");
-        inputField.focus(); // Focus the input field
+        if (cell.cellIndex === 2) { // Check if the cell is in the third column (for dropdown option input)
+            dropdownField.style.display = "block";
+            dropdownField.style.width = rect.width + "px";
+            dropdownField.style.height = rect.height + "px";
+            inputField.style.display = "none";
+            document.getElementById("buttonInput").style.display = "none";
+            document.getElementById("helper-text").style.display = "none";
+            populateDropdown([activeCell.innerText,"Option A", "Option B", "Option C"]);
+        /*} else if (cell.cellIndex === 0){ // use if have more than 1 column use drop down option
+            dropdownField.style.display = "block";
+            dropdownField.style.width = rect.width + "px";
+            dropdownField.style.height = rect.height + "px";
+            inputField.style.display = "none";
+            document.getElementById("buttonInput").style.display = "none";
+            document.getElementById("helper-text").style.display = "none";
+            dropdownField.focus();
+            populateDropdown([activeCell.innerText,"Option 1", "Option 2", "Option 3"]); */
+        } else {
+            inputField.style.display = "block";
+            inputField.style.width = rect.width + "px";
+            inputField.style.height = rect.height + "px";
+            dropdownField.style.display = "none";
+            document.getElementById("buttonInput").style.display = "block";
+            document.getElementById("helper-text").style.display = "block";
+            inputField.focus();
+        }
+    }
+
+    function populateDropdown(options) {
+        dropdownField.innerHTML = ""; // Clear existing options
+        options.forEach(function(option) {
+            var optionElement = document.createElement("option");
+            optionElement.value = option;
+            optionElement.textContent = option;
+            dropdownField.appendChild(optionElement);
+        });
     }
 
     // Function to show input field and save button
@@ -214,8 +252,14 @@
 
     // Function to save data from input field to table cell
     function saveData() {
-    var newData = inputField.value;
+ 
     var previousData = activeCell.innerText; // Capture the previous value before editing for prevent Race condition
+    var newData;
+    if (activeCell.cellIndex === 2){// || activeCell.cellIndex === 1) { // parse value from option dropdown input
+            newData = dropdownField.value;
+    } else {
+            newData = inputField.value; // parse value from free text input
+    }
     
     // Check if activeCell is valid and has parentNode
     if (activeCell && activeCell.parentNode) {

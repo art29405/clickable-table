@@ -22,6 +22,7 @@ Demo webpage available at https://art29405.github.io/clickable-table/
 - Data handler backend via AJAX with POST method. (PHP or any as needed)
 - Parse error text to Alert if error occur.
 - Race condition prevention by compare value to database value before modify.
+- Input as text or dropdown option.
 
 ## Installation
 
@@ -31,6 +32,8 @@ Demo webpage available at https://art29405.github.io/clickable-table/
 4. Move "activeCell.innerText = newData" to under status200
 5. Exclude editing column if needed (column count start from 0)
 6. Modify remove-row script if needed
+7. Modify column number that use dropdown option input in function name "positionInputContainer" and "saveData"
+8. Modify option value in function name "positionInputContainer"
 
 ## Usage
 
@@ -61,6 +64,10 @@ Demo webpage available at https://art29405.github.io/clickable-table/
 - Add create row markup
 - Add Filter input
 
+-- Version: 0.3.0.20240527
+
+- Add input as dropdown
+
 ## Known Issues
 
 - There is currently no validation for input data.
@@ -69,6 +76,7 @@ Demo webpage available at https://art29405.github.io/clickable-table/
 
 - Ability to exclude row from sorting.
 - Function to create new row.
+- Activate dropdown option immediatly when click. 
 
 ## Contributing
 
