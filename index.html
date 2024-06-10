@@ -124,40 +124,41 @@
         <th>Column1</th>
         <th>Column2 (Exclude)</th>
         <th>Column3 (Option)</th>
+        <th>Column4 (Checkbox)</th>
         <th>Delete</th>
       </tr>
     </thead>
     <tbody>
-        <tr id="row1"><td>Column1 - 1</td><td>Column2 - 1</td><td>Column3 - 1</td><td><button onclick="deleteRow('row1')">Delete</button></td></tr>
-        <tr id="row2"><td>Column1 - 2</td><td>Column2 - 2</td><td>Column3 - 2</td><td><button onclick="deleteRow('row2')">Delete</button></td></tr>
-        <tr id="row3"><td>Column1 - 3</td><td>Column2 - 3</td><td>Column3 - 3</td><td><button onclick="deleteRow('row3')">Delete</button></td></tr>
-        <tr id="row4"><td>Column1 - 4</td><td>Column2 - 4</td><td>Column3 - 4</td><td><button onclick="deleteRow('row4')">Delete</button></td></tr>
-        <tr id="row5"><td>Column1 - 5</td><td>Column2 - 5</td><td>Column3 - 5</td><td><button onclick="deleteRow('row5')">Delete</button></td></tr>
-        <tr id="row6"><td>Column1 - 6</td><td>Column2 - 6</td><td>Column3 - 6</td><td><button onclick="deleteRow('row6')">Delete</button></td></tr>
-        <tr id="row7"><td>Column1 - 7</td><td>Column2 - 7</td><td>Column3 - 7</td><td><button onclick="deleteRow('row7')">Delete</button></td></tr>
-        <tr id="row8"><td>Column1 - 8</td><td>Column2 - 8</td><td>Column3 - 8</td><td><button onclick="deleteRow('row8')">Delete</button></td></tr>
-        <tr id="row9"><td>Column1 - 9</td><td>Column2 - 9</td><td>Column3 - 9</td><td><button onclick="deleteRow('row9')">Delete</button></td></tr>
-        <tr id="row10"><td>Column1 - 10</td><td>Column2 - 10</td><td>Column3 - 10</td><td><button onclick="deleteRow('row10')">Delete</button></td></tr>
-        <tr id="row11"><td>Column1 - 11</td><td>Column2 - 11</td><td>Column3 - 11</td><td><button onclick="deleteRow('row11')">Delete</button></td></tr>
-        <tr id="row12"><td>Column1 - 12</td><td>Column2 - 12</td><td>Column3 - 12</td><td><button onclick="deleteRow('row12')">Delete</button></td></tr>
-        <tr id="row13"><td>Column1 - 13</td><td>Column2 - 13</td><td>Column3 - 13</td><td><button onclick="deleteRow('row13')">Delete</button></td></tr>
-        <tr id="row14"><td>Column1 - 14</td><td>Column2 - 14</td><td>Column3 - 14</td><td><button onclick="deleteRow('row14')">Delete</button></td></tr>
-        <tr id="row15"><td>Column1 - 15</td><td>Column2 - 15</td><td>Column3 - 15</td><td><button onclick="deleteRow('row15')">Delete</button></td></tr>
-        <tr id="row16"><td>Column1 - 16</td><td>Column2 - 16</td><td>Column3 - 16</td><td><button onclick="deleteRow('row16')">Delete</button></td></tr>
-        <tr id="row17"><td>Column1 - 17</td><td>Column2 - 17</td><td>Column3 - 17</td><td><button onclick="deleteRow('row17')">Delete</button></td></tr>
-        <tr id="row18"><td>Column1 - 18</td><td>Column2 - 18</td><td>Column3 - 18</td><td><button onclick="deleteRow('row18')">Delete</button></td></tr>
-        <tr id="row19"><td>Column1 - 19</td><td>Column2 - 19</td><td>Column3 - 19</td><td><button onclick="deleteRow('row19')">Delete</button></td></tr>
-        <tr id="row20"><td>Column1 - 20</td><td>Column2 - 20</td><td>Column3 - 20</td><td><button onclick="deleteRow('row20')">Delete</button></td></tr>
-        <tr id="row21"><td>Column1 - 21</td><td>Column2 - 21</td><td>Column3 - 21</td><td><button onclick="deleteRow('row21')">Delete</button></td></tr>
-        <tr id="row22"><td>Column1 - 22</td><td>Column2 - 22</td><td>Column3 - 22</td><td><button onclick="deleteRow('row22')">Delete</button></td></tr>
-        <tr id="row23"><td>Column1 - 23</td><td>Column2 - 23</td><td>Column3 - 23</td><td><button onclick="deleteRow('row23')">Delete</button></td></tr>
-        <tr id="row24"><td>Column1 - 24</td><td>Column2 - 24</td><td>Column3 - 24</td><td><button onclick="deleteRow('row24')">Delete</button></td></tr>
-        <tr id="row25"><td>Column1 - 25</td><td>Column2 - 25</td><td>Column3 - 25</td><td><button onclick="deleteRow('row25')">Delete</button></td></tr>
-        <tr id="row26"><td>Column1 - 26</td><td>Column2 - 26</td><td>Column3 - 26</td><td><button onclick="deleteRow('row26')">Delete</button></td></tr>
-        <tr id="row27"><td>Column1 - 27</td><td>Column2 - 27</td><td>Column3 - 27</td><td><button onclick="deleteRow('row27')">Delete</button></td></tr>
-        <tr id="row28"><td>Column1 - 28</td><td>Column2 - 28</td><td>Column3 - 28</td><td><button onclick="deleteRow('row28')">Delete</button></td></tr>
-        <tr id="row29"><td>Column1 - 29</td><td>Column2 - 29</td><td>Column3 - 29</td><td><button onclick="deleteRow('row29')">Delete</button></td></tr>
-        <tr id="row30"><td>Column1 - 30</td><td>Column2 - 30</td><td>Column3 - 30</td><td><button onclick="deleteRow('row30')">Delete</button></td></tr>
+        <tr id="row1"><td>Column1 - 1</td><td>Column2 - 1</td><td>Column3 - 1</td><td><input type="checkbox" class="active-checkbox" id="checkboxRow1" name="checkboxRow1"><label for="checkboxRow1"> Active</label></td><td><button onclick="deleteRow('row1')">Delete</button></td></tr>
+        <tr id="row2"><td>Column1 - 2</td><td>Column2 - 2</td><td>Column3 - 2</td><td><input type="checkbox" class="active-checkbox" id="checkboxRow2" name="checkboxRow2"><label for="checkboxRow2"> Active</label></td><td><button onclick="deleteRow('row2')">Delete</button></td></tr>
+        <tr id="row3"><td>Column1 - 3</td><td>Column2 - 3</td><td>Column3 - 3</td><td><input type="checkbox" class="active-checkbox" id="checkboxRow3" name="checkboxRow3"><label for="checkboxRow3"> Active</label></td><td><button onclick="deleteRow('row3')">Delete</button></td></tr>
+        <tr id="row4"><td>Column1 - 4</td><td>Column2 - 4</td><td>Column3 - 4</td><td><input type="checkbox" class="active-checkbox" id="checkboxRow4" name="checkboxRow4"><label for="checkboxRow4"> Active</label></td><td><button onclick="deleteRow('row4')">Delete</button></td></tr>
+        <tr id="row5"><td>Column1 - 5</td><td>Column2 - 5</td><td>Column3 - 5</td><td><input type="checkbox" class="active-checkbox" id="checkboxRow5" name="checkboxRow5"><label for="checkboxRow5"> Active</label></td><td><button onclick="deleteRow('row5')">Delete</button></td></tr> 
+        <tr id="row6"><td>Column1 - 6</td><td>Column2 - 6</td><td>Column3 - 6</td><td><input type="checkbox" class="active-checkbox" id="checkboxRow6" name="checkboxRow6"><label for="checkboxRow6"> Active</label></td><td><button onclick="deleteRow('row6')">Delete</button></td></tr>
+        <tr id="row7"><td>Column1 - 7</td><td>Column2 - 7</td><td>Column3 - 7</td><td><input type="checkbox" class="active-checkbox" id="checkboxRow7" name="checkboxRow7"><label for="checkboxRow7"> Active</label></td><td><button onclick="deleteRow('row7')">Delete</button></td></tr>
+        <tr id="row8"><td>Column1 - 8</td><td>Column2 - 8</td><td>Column3 - 8</td><td><input type="checkbox" class="active-checkbox" id="checkboxRow8" name="checkboxRow8"><label for="checkboxRow8"> Active</label></td><td><button onclick="deleteRow('row8')">Delete</button></td></tr>
+        <tr id="row9"><td>Column1 - 9</td><td>Column2 - 9</td><td>Column3 - 9</td><td><input type="checkbox" class="active-checkbox" id="checkboxRow9" name="checkboxRow9"><label for="checkboxRow9"> Active</label></td><td><button onclick="deleteRow('row9')">Delete</button></td></tr>
+        <tr id="row10"><td>Column1 - 10</td><td>Column2 - 10</td><td>Column3 - 10</td><td><input type="checkbox" class="active-checkbox" id="checkboxRow10" name="checkboxRow10"><label for="checkboxRow10"> Active</label></td><td><button onclick="deleteRow('row10')">Delete</button></td></tr>
+        <tr id="row11"><td>Column1 - 11</td><td>Column2 - 11</td><td>Column3 - 11</td><td><input type="checkbox" class="active-checkbox" id="checkboxRow11" name="checkboxRow11"><label for="checkboxRow11"> Active</label></td><td><button onclick="deleteRow('row11')">Delete</button></td></tr>
+        <tr id="row12"><td>Column1 - 12</td><td>Column2 - 12</td><td>Column3 - 12</td><td><input type="checkbox" class="active-checkbox" id="checkboxRow12" name="checkboxRow12"><label for="checkboxRow12"> Active</label></td><td><button onclick="deleteRow('row12')">Delete</button></td></tr>
+        <tr id="row13"><td>Column1 - 13</td><td>Column2 - 13</td><td>Column3 - 13</td><td><input type="checkbox" class="active-checkbox" id="checkboxRow13" name="checkboxRow13"><label for="checkboxRow13"> Active</label></td><td><button onclick="deleteRow('row13')">Delete</button></td></tr>
+        <tr id="row14"><td>Column1 - 14</td><td>Column2 - 14</td><td>Column3 - 14</td><td><input type="checkbox" class="active-checkbox" id="checkboxRow14" name="checkboxRow14"><label for="checkboxRow14"> Active</label></td><td><button onclick="deleteRow('row14')">Delete</button></td></tr>
+        <tr id="row15"><td>Column1 - 15</td><td>Column2 - 15</td><td>Column3 - 15</td><td><input type="checkbox" class="active-checkbox" id="checkboxRow15" name="checkboxRow15"><label for="checkboxRow15"> Active</label></td><td><button onclick="deleteRow('row15')">Delete</button></td></tr>
+        <tr id="row16"><td>Column1 - 16</td><td>Column2 - 16</td><td>Column3 - 16</td><td><input type="checkbox" class="active-checkbox" id="checkboxRow16" name="checkboxRow16"><label for="checkboxRow16"> Active</label></td><td><button onclick="deleteRow('row16')">Delete</button></td></tr>
+        <tr id="row17"><td>Column1 - 17</td><td>Column2 - 17</td><td>Column3 - 17</td><td><input type="checkbox" class="active-checkbox" id="checkboxRow17" name="checkboxRow17"><label for="checkboxRow17"> Active</label></td><td><button onclick="deleteRow('row17')">Delete</button></td></tr>
+        <tr id="row18"><td>Column1 - 18</td><td>Column2 - 18</td><td>Column3 - 18</td><td><input type="checkbox" class="active-checkbox" id="checkboxRow18" name="checkboxRow18"><label for="checkboxRow18"> Active</label></td><td><button onclick="deleteRow('row18')">Delete</button></td></tr>
+        <tr id="row19"><td>Column1 - 19</td><td>Column2 - 19</td><td>Column3 - 19</td><td><input type="checkbox" class="active-checkbox" id="checkboxRow19" name="checkboxRow19"><label for="checkboxRow19"> Active</label></td><td><button onclick="deleteRow('row19')">Delete</button></td></tr>
+        <tr id="row20"><td>Column1 - 20</td><td>Column2 - 20</td><td>Column3 - 20</td><td><input type="checkbox" class="active-checkbox" id="checkboxRow20" name="checkboxRow20"><label for="checkboxRow20"> Active</label></td><td><button onclick="deleteRow('row20')">Delete</button></td></tr>
+        <tr id="row21"><td>Column1 - 21</td><td>Column2 - 21</td><td>Column3 - 21</td><td><input type="checkbox" class="active-checkbox" id="checkboxRow21" name="checkboxRow21"><label for="checkboxRow21"> Active</label></td><td><button onclick="deleteRow('row21')">Delete</button></td></tr>
+        <tr id="row22"><td>Column1 - 22</td><td>Column2 - 22</td><td>Column3 - 22</td><td><input type="checkbox" class="active-checkbox" id="checkboxRow22" name="checkboxRow22"><label for="checkboxRow22"> Active</label></td><td><button onclick="deleteRow('row22')">Delete</button></td></tr>
+        <tr id="row23"><td>Column1 - 23</td><td>Column2 - 23</td><td>Column3 - 23</td><td><input type="checkbox" class="active-checkbox" id="checkboxRow23" name="checkboxRow23"><label for="checkboxRow23"> Active</label></td><td><button onclick="deleteRow('row23')">Delete</button></td></tr>
+        <tr id="row24"><td>Column1 - 24</td><td>Column2 - 24</td><td>Column3 - 24</td><td><input type="checkbox" class="active-checkbox" id="checkboxRow24" name="checkboxRow24"><label for="checkboxRow24"> Active</label></td><td><button onclick="deleteRow('row24')">Delete</button></td></tr>
+        <tr id="row25"><td>Column1 - 25</td><td>Column2 - 25</td><td>Column3 - 25</td><td><input type="checkbox" class="active-checkbox" id="checkboxRow25" name="checkboxRow25"><label for="checkboxRow25"> Active</label></td><td><button onclick="deleteRow('row25')">Delete</button></td></tr>
+        <tr id="row26"><td>Column1 - 26</td><td>Column2 - 26</td><td>Column3 - 26</td><td><input type="checkbox" class="active-checkbox" id="checkboxRow26" name="checkboxRow26"><label for="checkboxRow26"> Active</label></td><td><button onclick="deleteRow('row26')">Delete</button></td></tr>
+        <tr id="row27"><td>Column1 - 27</td><td>Column2 - 27</td><td>Column3 - 27</td><td><input type="checkbox" class="active-checkbox" id="checkboxRow27" name="checkboxRow27"><label for="checkboxRow27"> Active</label></td><td><button onclick="deleteRow('row27')">Delete</button></td></tr>
+        <tr id="row28"><td>Column1 - 28</td><td>Column2 - 28</td><td>Column3 - 28</td><td><input type="checkbox" class="active-checkbox" id="checkboxRow28" name="checkboxRow28"><label for="checkboxRow28"> Active</label></td><td><button onclick="deleteRow('row28')">Delete</button></td></tr>
+        <tr id="row29"><td>Column1 - 29</td><td>Column2 - 29</td><td>Column3 - 29</td><td><input type="checkbox" class="active-checkbox" id="checkboxRow29" name="checkboxRow29"><label for="checkboxRow29"> Active</label></td><td><button onclick="deleteRow('row29')">Delete</button></td></tr>
+        <tr id="row30"><td>Column1 - 30</td><td>Column2 - 30</td><td>Column3 - 30</td><td><input type="checkbox" class="active-checkbox" id="checkboxRow30" name="checkboxRow30"><label for="checkboxRow30"> Active</label></td><td><button onclick="deleteRow('row30')">Delete</button></td></tr>
         <tr id="newRow">
             <td>
                 <input type="text" id="inputColumn1" placeholder="inputColumn1">
@@ -309,7 +310,7 @@
     // Event listener to detect clicks on table cells
     table.addEventListener("click", function(event) {
         var target = event.target;
-        if (target.tagName === "TD" && !target.closest('#newRow') && target.cellIndex !== 1 && target.cellIndex !== 3) { // Exclude editing for column 2,4 and rowID="newRow"
+        if (target.tagName === "TD" && !target.closest('#newRow') && target.cellIndex !== 1 && target.cellIndex !== 3 && target.cellIndex !== 4) { // Exclude editing for column 2,4 and rowID="newRow"
             showInputField(target);
         }
     });
@@ -409,6 +410,36 @@
       var row = document.getElementById(rowId);
       row.parentNode.removeChild(row);
     }
+</script>
+
+<script>
+// Function to handle checkbox state change
+    function handleCheckboxChange(event) {
+        var checkbox = event.target;
+        var row = checkbox.closest('tr');
+        var rowId = row ? row.id : '';
+        var isChecked = checkbox.checked ? 1 : 0;
+
+        // Send checkbox state to xxx.php using AJAX
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4) {
+                if (this.status == 200) {
+                    console.log("Checkbox state saved successfully:", this.responseText);
+                } else {
+                    alert("Error: " + this.status + " - " + this.statusText);
+                }
+            }
+        };
+        xhttp.open("POST", "data-handler.php", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("ActiveCheckboxState=" + isChecked + "&row=" + rowId);
+    }
+
+    // Attach event listeners to checkboxes
+    document.querySelectorAll(".active-checkbox").forEach(function(checkbox) {
+        checkbox.addEventListener("change", handleCheckboxChange);
+    });
 </script>
 
 <script>

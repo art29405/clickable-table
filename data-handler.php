@@ -8,7 +8,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $row = $_POST["row"];
     $data = $_POST["data"];
     $previousData = $_POST["previousData"] ?? '';
-    
+    $activeCheckboxState = isset($_POST['ActiveCheckboxState']) ? $_POST['ActiveCheckboxState'] : null;
+
     // Example of processing the data (you can modify this part based on your requirements)
     // Here, we'll simply echo the received data
     echo "AppName: $AppName\n";
@@ -105,6 +106,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             http_response_code(400); // Bad Request
             echo "Invalid header";
         }
+    } elseif ($activeCheckboxState !== null) {
+        // Process checkbox state change
+        // Here, you would typically save the state to a database or perform other actions
+        // For demonstration purposes, we'll just create a response message
+        $response = array();
+        $response['message'] = "Checkbox state saved successfully";
+        $response['row'] = $row;
+        $response['activeCheckboxState'] = $activeCheckboxState;
+        echo json_encode($response);
     } else {
         http_response_code(400); // Bad Request
         echo "Invalid AppName or missing parameters";
@@ -166,7 +176,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Respond with HTTP status code 405 (Method Not Allowed) if the request method is not POST
     http_response_code(405);
     echo "Method Not Allowed";
-    */
+    
 }
 
 ?>

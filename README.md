@@ -34,6 +34,7 @@ Demo webpage available at https://art29405.github.io/clickable-table/
 6. Modify remove-row script if needed
 7. Modify column number that use dropdown option input in function name "positionInputContainer" and "saveData"
 8. Modify option value in function name "positionInputContainer"
+8. Modify option value in function name "positionInputContainer"
 
 ## Usage
 
@@ -68,9 +69,14 @@ Demo webpage available at https://art29405.github.io/clickable-table/
 
 - Add input as dropdown
 
+-- Version: 0.4.0.20240610
+
+- Add input as checkbox
+
 ## Known Issues
 
 - There is currently no validation for input data.
+- show error in example data-handler file when use checkbox
 
 ## Roadmap
 
